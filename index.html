@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horto Cyber</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container flex space-between align-center">
+      <a href="#" class="logo"><img src="images/LogoHorto.png" alt="Logo"></a>
+
+      <span id="btn-mobile">☰</span>
+      <ul class="nav-links flex gap" id="menu-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <!-- botão para mobile -->
+        <li><a href="#" class="btn btn-primary reserve-mobile">Reserve uma Mesa</a></li>
+      </ul>
+
+      <!-- botão desktop -->
+      <a href="#" class="btn btn-primary btn-desktop">Reserve uma Mesa</a>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <section class="carousel" id="home">
+    <div class="slide active" style="background-image: url('images/carousel1.jpg');"></div>
+    <div class="slide"        style="background-image: url('images/carousel2.jpg');"></div>
+    <div class="slide"        style="background-image: url('images/carousel3.jpg');"></div>
+
+    <div class="overlay">
+      <h1>
+        <span class="line1">Horto</span><br>
+        <span class="line2">Cyber</span>
+      </h1>
+      <p class="slogan">Sabores do mundo, encontros de coração.</p>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
+    </div>
+    <div class="carousel-indicators"></div>
+  </section>
+
+    <!-- Social sidebar -->
+    <div class="social-sidebar">
+      <a
+        href="https://instagram.com/seuPerfil" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://facebook.com/seuPerfil" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
+
+<!-- Sobre Nós -->
+<section class="section" id="sobre">
+  <div class="container">
+    <div class="sobre-grid animate-on-scroll">
+      <div class="sobre-img">
+        <img src="images/bar_interior.jpg" alt="Sobre Nós">
+      </div>
+      <div class="sobre-content">
+        <!-- Título movido para a direita e aumentado -->
+        <h2 class="section-title right-title">Sobre Nós</h2>
+        <div class="sobre-text">
+          <!-- Texto sobre Horto Cyber com tamanho ampliado -->
+          <p class="horto-text">
+            No Horto Cyber, unimos tecnologia de ponta e um ambiente acolhedor para criar experiências únicas. Nossa missão é trazer o melhor da inovação em realidade aumentada e realidade virtual, tudo isso regado aos sabores exclusivos do nosso menu.
+          </p>
+          <!-- Mini texto sobre o café -->
+          <p class="coffee-text">
+            Nosso café é selecionado de pequenos produtores sustentáveis e preparado com métodos especiais para realçar notas de chocolate e frutos vermelhos, garantindo uma xícara aromática e encorpada a cada visita.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Menu -->
+  <section class="section section-dark" id="menu">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Nosso Menu</h2>
+      <div class="cards-grid animate-on-scroll">
+        <div class="card">
+          <img src="images/petiscos-tapas.png" alt="Prato 1">
+          <h3>Prato Especial</h3>
+          <p>Descrição do prato especial com ingredientes selecionados.</p>
+        </div>
+        <div class="card">
+          <img src="images/cocktail.png" alt="Prato 2">
+          <h3>Sabor do Dia</h3>
+          <p>Uma combinação única que varia diariamente.</p>
+        </div>
+        <div class="card">
+          <img src="images/desert.png" alt="Prato 3">
+          <h3>Clássico da Casa</h3>
+          <p>Nosso prato mais pedido, feito com tradição.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Avaliações -->
+  <section class="section" id="avaliacoes">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">O Que Dizem Nossos Clientes</h2>
+      <div class="avaliacoes-grid animate-on-scroll">
+        <div class="avaliacao-card">
+          <p>"Comida incrível e atendimento impecável!"</p>
+          <span>- Maria S.</span>
+        </div>
+        <div class="avaliacao-card">
+          <p>"Melhor restaurante da cidade, sem dúvida."</p>
+          <span>- João P.</span>
+        </div>
+        <div class="avaliacao-card">
+          <p>"Ambiente acolhedor e pratos deliciosos."</p>
+          <span>- Ana L.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Contato</h4>
+        <p>Email: contato@sabor.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+      </div>
+      <div>
+        <h4>Redes Sociais</h4>
+        <p><a href="#">Instagram</a></p>
+        <p><a href="#">Facebook</a></p>
+      </div>
+      <div>
+        <h4>Horário</h4>
+        <p>Seg-Sáb: 11h - 23h</p>
+        <p>Dom: 12h - 22h</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; 2025 Horto Cyber. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
