@@ -1,14 +1,12 @@
-
-
 // MOBILE MENU TOGGLE
 const btnMobile = document.getElementById('btn-mobile');
 const navLinks = document.querySelector('.nav-links');
-const btnReserve = document.querySelector('.btn-primary');
 
-btnMobile.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  btnReserve.classList.toggle('active');
-});
+if (btnMobile && navLinks) {
+  btnMobile.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
 
 // CAROUSEL
 const slides = document.querySelectorAll('.slide');
@@ -17,39 +15,45 @@ const nextBtn = document.querySelector('.next');
 const indicators = document.querySelector('.carousel-indicators');
 let currentSlide = 0;
 
-slides.forEach((_, index) => {
-  const dot = document.createElement('span');
-  dot.classList.add('dot');
-  if (index === 0) dot.classList.add('active');
-  dot.addEventListener('click', () => goToSlide(index));
-  indicators.appendChild(dot);
-});
+if (slides.length > 0 && indicators) {
+  slides.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(index));
+    indicators.appendChild(dot);
+  });
 
-const dots = document.querySelectorAll('.dot');
+  const dots = document.querySelectorAll('.dot');
 
-function goToSlide(index) {
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = index;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      let newSlide = currentSlide - 1;
+      if (newSlide < 0) newSlide = slides.length - 1;
+      goToSlide(newSlide);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      let newSlide = (currentSlide + 1) % slides.length;
+      goToSlide(newSlide);
+    });
+  }
+
+  setInterval(() => {
+    let newSlide = (currentSlide + 1) % slides.length;
+    goToSlide(newSlide);
+  }, 5000);
 }
-
-prevBtn.addEventListener('click', () => {
-  let newSlide = currentSlide - 1;
-  if (newSlide < 0) newSlide = slides.length - 1;
-  goToSlide(newSlide);
-});
-
-nextBtn.addEventListener('click', () => {
-  let newSlide = (currentSlide + 1) % slides.length;
-  goToSlide(newSlide);
-});
-
-setInterval(() => {
-  let newSlide = (currentSlide + 1) % slides.length;
-  goToSlide(newSlide);
-}, 5000);
 
 // SCROLL ANIMATIONS
 const animateElements = document.querySelectorAll('.animate-on-scroll');
