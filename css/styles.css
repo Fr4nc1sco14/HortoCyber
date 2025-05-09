@@ -58,7 +58,7 @@ a { text-decoration:none; }
   position:absolute; inset:0;
   background-size:cover;
   background-position:center;
-  opacity:0; transition:opacity 1s ease-in-out;
+  opacity:0; transition:opacity 0.5s ease-in-out;
 }
 .slide.active { opacity:1; }
 
@@ -84,19 +84,7 @@ a { text-decoration:none; }
   font-style:italic;
 }
 
-/* CAROUSEL CONTROLS */
-.carousel-controls {
-  position:absolute; top:50%;
-  width:100%; display:flex;
-  justify-content:space-between;
-  transform:translateY(-50%);
-}
-.prev, .next {
-  background:rgba(0,0,0,0.5);
-  color:#fff; border:none;
-  padding:1rem; cursor:pointer;
-  font-size:1.5rem;
-}
+/* CAROUSEL INDICATORS */
 .carousel-indicators {
   position:absolute; bottom:1rem;
   left:50%; transform:translateX(-50%);
@@ -241,10 +229,11 @@ a { text-decoration:none; }
 
   .carousel { height:50vh; }
   .overlay h1 { font-size:6vw; }
-  .overlay .line1 { font-size:10vw; }
-  .overlay .line2 { font-size:5vw; }
+  .overlay .line1 { font-size:25vw; }
+  .overlay .line2 { font-size:15vw; }
   .overlay .slogan { font-size:3vw; }
-  .prev, .next { padding:0.5rem; font-size:1rem; }
+  .carousel-indicators { bottom:0.5rem; }
+  .dot { width:8px; height:8px; }
 
   .section { padding:2rem 1rem; }
   .section-title { font-size:2rem; margin-bottom:1.5rem; }
