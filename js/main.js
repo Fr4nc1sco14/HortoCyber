@@ -8,7 +8,7 @@ if (btnMobile && navLinks) {
   });
 }
 
-// CAROUSEL
+// CAROUSEL SETUP
 const carousel = document.querySelector('.carousel');
 const slides = document.querySelectorAll('.slide');
 const prevBtn = document.querySelector('.prev');
@@ -20,7 +20,7 @@ let startX = 0;
 let isDragging = false;
 
 // Cria indicadores (dots)
-if (indicatorsContainer) {
+if (indicatorsContainer && slides.length) {
   slides.forEach((_, i) => {
     const dot = document.createElement('span');
     dot.classList.add('dot');
