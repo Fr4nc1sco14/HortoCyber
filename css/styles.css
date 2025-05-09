@@ -236,11 +236,11 @@ a { text-decoration:none; }
   .dot { width:8px; height:8px; }
 
   .section { padding:2rem 1rem; }
-  .section-title { font-size:2rem; margin-bottom:1.5rem; }
+  .section-title { font-size:2rem; margin-bottom:1.5rem;}
 
   .sobre-grid { display:flex; flex-direction:column; text-align:center; gap:1rem; }
   .sobre-img img { margin:0 auto 1rem; max-width:100%; }
-  .right-title { font-size:2rem; }
+  .right-title { font-size:2rem; text-align: center;width: 100%;}
   .horto-text { font-size:1rem; }
   .coffee-text { font-size:0.9rem; }
 
