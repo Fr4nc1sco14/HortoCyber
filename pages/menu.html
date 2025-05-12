@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu - Horto Cyber</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Menu-specific Styles -->
+  <link rel="stylesheet" href="../css/menu.css">
+</head>
+<body>
+  <!-- Navbar include -->
+  <nav class="navbar">
+    <div class="container flex space-between align-center">
+      <a href="index.html" class="logo"><img src="../images/LogoHorto.png" alt="Logo Horto Cyber"></a>
+      <span id="btn-mobile">☰</span>
+      <ul class="nav-links flex gap" id="menu-list">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#sobre">Sobre Nós</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="index.html#avaliacoes">Avaliações</a></li>
+        <li><a href="#" class="btn btn-primary reserve-mobile">Reserve uma Mesa</a></li>
+        <li class="social-mobile">
+          <a href="https://instagram.com/seuPerfil" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/seuPerfil" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </li>
+      </ul>
+      <a href="#" class="btn btn-primary btn-desktop">Reserve uma Mesa</a>
+    </div>
+  </nav>
+
+  <main class="container menu-container">
+    <!-- Tabs -->
+    <div class="menu-tabs">
+      <div class="menu-tab active" data-target="petiscos"><i class="fas fa-utensils"></i><span>Tapas & Petiscos</span></div>
+      <div class="menu-tab" data-target="bebidas"><i class="fas fa-cocktail"></i><span>Bebidas</span></div>
+      <div class="menu-tab" data-target="especiais"><i class="fas fa-star"></i><span>Pratos Especiais</span></div>
+    </div>
+
+
+    
+    <!-- Section: Tapas & Petiscos -->
+    <section id="petiscos" class="menu-section active">
+      <h2>Tapas & Petiscos</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="../images/bruschetta.jpg" alt="Bruschetta Tradicional">
+          <div class="menu-item-content">
+            <h4>Bruschetta Tradicional</h4>
+            <p>Pão crocante com tomate, manjericão e azeite extra-virgem.</p>
+            <span class="price">€6,50</span>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="../images/TabuaEnchidos2.jpg" alt="Bruschetta Tradicional">
+          <div class="menu-item-content">
+            <h4>Tabua de Enchidos</h4>
+            <p>Uma bela tabua cheia de sabor, para partilhar com as pessoas que mais gostas.</p>
+            <span class="price">€16,50</span>
+          </div>
+        </div>
+
+    </div>
+    </section>
+
+    <!-- Section: Bebidas -->
+    <section id="bebidas" class="menu-section">
+      <h2>Bebidas</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="../images/GinTropical.png" alt="Cocktail Horto Cyber">
+          <div class="menu-item-content">
+            <h4>Gin Tropical</h4>
+            <p>Mix de gin com o sabor tropical do nosso redbull tropical.</p>
+            <span class="price">€8,00</span>
+          </div>
+        </div>
+        <!-- duplicar para novos itens -->
+      </div>
+    </section>
+
+    <!-- Section: Pratos Especiais -->
+    <section id="especiais" class="menu-section">
+      <h2>Pratos Especiais</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="../images/Francesinha.png" alt="Francesinha Especial">
+          <div class="menu-item-content">
+            <h4>Francesinha Especial</h4>
+            <p>A receita perfeita do norte e umas das comidas típicas portuguesas.</p>
+            <span class="price">€12,00</span>
+          </div>
+        </div>
+        <!-- duplicar para novos itens -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer include -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <p>Email: contato@sabor.com</p>
+        <p>Telefone: (+351) 964 883 971</p>
+      </div>
+      <div class="footer-map">
+        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="200" style="border:0;" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="footer-social">
+        <h4>Siga-nos</h4>
+        <a href="https://www.facebook.com/hortodocyber/?locale=pt_BR" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/hortodocyber/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-hours">
+        <h4>Horário</h4>
+        <p>Seg - Dom: 12h - 02h</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>© 2025 Horto Cyber. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Menu-specific Script -->
+  <script src="../js/menu.js"></script>
+</body>
+</html>

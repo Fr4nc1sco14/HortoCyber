@@ -1,0 +1,84 @@
+/* Container */
+.menu-container {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #101010, #1a1a1a);
+}
+
+/* Tab Icons */
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  margin-bottom: 5rem;
+}
+.menu-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+  color: #aaa;
+  padding: 0.5rem 1rem;
+}
+.menu-tab i { font-size: 2.5rem; margin-bottom: 0.4rem; }
+.menu-tab span { font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; }
+.menu-tab.active { color: #d4af37; transform: translateY(-5px); }
+.menu-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background: #d4af37;
+  border-radius: 2px;
+}
+
+
+/* Sections Hidden by Default */
+.menu-section { display: none; animation: fadeIn 0.5s ease-in-out; }
+.menu-section.active { display: block; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(10px);} to { opacity:1; transform: translateY(0);} }
+
+/* Section Title */
+.menu-section h2 { font-size: 2.8rem; text-align: center; color: #d4af37; margin-bottom: 2.5rem; }
+
+/* Grid Cards */
+.menu-items { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media(min-width: 768px) {
+  .menu-items { grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); }
+}
+.menu-item {
+  background: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+@media(min-width: 768px) {
+  .menu-item { flex-direction: row; }
+}
+.menu-item:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.6); }
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+@media(min-width: 768px) {
+  .menu-item img { width: 40%; height: auto; }
+}
+.menu-item-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-item h4 { color: #fff; font-size: 1.5rem; margin-bottom: 0.6rem; }
+.menu-item p { color: #ccc; margin-bottom: 1rem; line-height: 1.4; flex: 1; }
+.menu-item .price { text-align: right; font-weight: 700; font-size: 1.3rem; color: #d4af37; }
+
+/* Navbar override z-index */
+.navbar { z-index: 200; }
