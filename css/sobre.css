@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Estilos para a seção Sobre Nós */
+.section#sobre .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.visual {
+  position: relative;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-large {
+  width: 300px;
+  height: 400px;
+  background: url('../images/interior.jpg') center/cover no-repeat;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.img-small {
+  position: absolute;
+  top: 80px;
+  left: -60px;
+  width: 240px;
+  height: 360px;
+  background: url('../images/interior2.jpg') center/cover no-repeat;
+  border-radius: 8px;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.since {
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #b19170;
+  opacity: 0.9;
+  z-index: 3;
+}
+
+.texto {
+  width: 45%;
+}
+
+.subtitulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #b19170;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.titulo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+  color: #f5f2ec;
+}
+
+.linha {
+  width: 40px;
+  height: 1px;
+  background: #b19170;
+  margin-bottom: 24px;
+}
+
+.descricao {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.frase {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border: 1px solid #b19170;
+  color: #f5f2ec;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: #b19170;
+  color: #0d0f11;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .section#sobre .container {
+    flex-direction: column;
+  }
+  .visual, .texto {
+    width: 100%;
+    text-align: center;
+  }
+  .img-small {
+    top: 40px;
+    left: calc(50% - 120px);
+  }
+  .img-large {
+    margin: 0 auto;
+  }
+  .texto {
+    margin-top: 60px;
+  }
+}

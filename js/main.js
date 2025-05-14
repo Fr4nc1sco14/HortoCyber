@@ -11,8 +11,6 @@ if (btnMobile && navLinks) {
 // CAROUSEL SETUP
 const carousel = document.querySelector('.carousel');
 const slides = document.querySelectorAll('.slide');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
 const indicatorsContainer = document.querySelector('.carousel-indicators');
 
 let currentSlide = 0;
@@ -41,22 +39,6 @@ function goToSlide(index) {
 
   slides[currentSlide].classList.add('active');
   if (dots[currentSlide]) dots[currentSlide].classList.add('active');
-}
-
-// Botões prev/next
-if (prevBtn) {
-  prevBtn.addEventListener('click', () => {
-    let nextIndex = currentSlide - 1;
-    if (nextIndex < 0) nextIndex = slides.length - 1;
-    goToSlide(nextIndex);
-  });
-}
-
-if (nextBtn) {
-  nextBtn.addEventListener('click', () => {
-    let nextIndex = (currentSlide + 1) % slides.length;
-    goToSlide(nextIndex);
-  });
 }
 
 // Autoplay a cada 5s
@@ -134,3 +116,9 @@ function checkScroll() {
 
 window.addEventListener('scroll', checkScroll);
 checkScroll(); // ao carregar a página
+
+// Evento para o botão "Descubra Mais"
+document.getElementById('btnDescobrir').addEventListener('click', function(e) {
+  e.preventDefault();
+  alert('Visite-nos em breve no Horto do Cyber Café!');
+});
