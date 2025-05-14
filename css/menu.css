@@ -1,17 +1,17 @@
 /* Container */
 .menu-container {
-  padding: 4rem 0;
+  padding: 2rem 0;
   background: linear-gradient(135deg, #101010, #1a1a1a);
 }
 
 /* Tab Icons */
 .menu-tabs {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
   position: relative;
-  margin-bottom: 5rem;
 }
 .menu-tab {
   display: flex;
@@ -20,11 +20,21 @@
   cursor: pointer;
   transition: transform 0.3s, color 0.3s;
   color: #aaa;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
 }
-.menu-tab i { font-size: 2.5rem; margin-bottom: 0.4rem; }
-.menu-tab span { font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; }
-.menu-tab.active { color: #d4af37; transform: translateY(-5px); }
+.menu-tab i { 
+  font-size: 2rem;
+  margin-bottom: 0.3rem; 
+}
+.menu-tab span { 
+  font-size: 1rem;
+  font-weight: 600; 
+  letter-spacing: 1px; 
+}
+.menu-tab.active { 
+  color: #d4af37; 
+  transform: translateY(-5px); 
+}
 .menu-tab.active::after {
   content: '';
   position: absolute;
@@ -35,19 +45,32 @@
   border-radius: 2px;
 }
 
-
 /* Sections Hidden by Default */
-.menu-section { display: none; animation: fadeIn 0.5s ease-in-out; }
-.menu-section.active { display: block; }
-@keyframes fadeIn { from { opacity:0; transform: translateY(10px);} to { opacity:1; transform: translateY(0);} }
+.menu-section { 
+  display: none; 
+  animation: fadeIn 0.5s ease-in-out; 
+}
+.menu-section.active { 
+  display: block; 
+}
+@keyframes fadeIn { 
+  from { opacity:0; transform: translateY(10px);} 
+  to { opacity:1; transform: translateY(0);} 
+}
 
 /* Section Title */
-.menu-section h2 { font-size: 2.8rem; text-align: center; color: #d4af37; margin-bottom: 2.5rem; }
+.menu-section h2 { 
+  font-size: 2rem;
+  text-align: center; 
+  color: #d4af37; 
+  margin-bottom: 1.5rem;
+}
 
 /* Grid Cards */
-.menu-items { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
-@media(min-width: 768px) {
-  .menu-items { grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); }
+.menu-items { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 1.5rem;
 }
 .menu-item {
   background: #222;
@@ -58,27 +81,79 @@
   display: flex;
   flex-direction: column;
 }
-@media(min-width: 768px) {
-  .menu-item { flex-direction: row; }
+.menu-item:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0,0,0,0.6); 
 }
-.menu-item:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.6); }
 .menu-item img {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
 }
-@media(min-width: 768px) {
-  .menu-item img { width: 40%; height: auto; }
-}
 .menu-item-content {
-  padding: 1.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.menu-item h4 { color: #fff; font-size: 1.5rem; margin-bottom: 0.6rem; }
-.menu-item p { color: #ccc; margin-bottom: 1rem; line-height: 1.4; flex: 1; }
-.menu-item .price { text-align: right; font-weight: 700; font-size: 1.3rem; color: #d4af37; }
+.menu-item h4 { 
+  color: #fff; 
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem; 
+}
+.menu-item p { 
+  color: #ccc; 
+  margin-bottom: 0.8rem; 
+  line-height: 1.4; 
+  flex: 1; 
+}
+.menu-item .price { 
+  text-align: right; 
+  font-weight: 700; 
+  font-size: 1.1rem;
+  color: #d4af37; 
+}
 
 /* Navbar override z-index */
 .navbar { z-index: 200; }
+
+/* Media Queries para Desktop */
+@media(min-width: 768px) {
+  .menu-container {
+    padding: 4rem 0;
+  }
+  .menu-tabs {
+    gap: 2rem;
+    margin-bottom: 5rem;
+  }
+  .menu-tab i { 
+    font-size: 2.5rem;
+  }
+  .menu-tab span { 
+    font-size: 1.1rem;
+  }
+  .menu-section h2 { 
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .menu-items { 
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); 
+    gap: 2.5rem;
+  }
+  .menu-item { 
+    flex-direction: row; 
+  }
+  .menu-item img { 
+    width: 40%; 
+    height: auto; 
+  }
+  .menu-item-content { 
+    padding: 1.5rem;
+  }
+  .menu-item h4 { 
+    font-size: 1.5rem;
+  }
+  .menu-item .price { 
+    font-size: 1.3rem;
+  }
+}

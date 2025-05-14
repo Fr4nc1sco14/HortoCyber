@@ -11,6 +11,7 @@ body {
   background: #111;
   color: #eee;
   line-height: 1.6;
+  font-size: 16px; /* Tamanho base consistente */
 }
 a { text-decoration: none; }
 
@@ -41,7 +42,7 @@ a { text-decoration: none; }
   background: #b3952a;
 }
 
-/* NAVBAR */
+/* DESKTOP STYLES (Base + min-width: 769px) */
 .navbar {
   position: sticky;
   top: 0;
@@ -53,8 +54,6 @@ a { text-decoration: none; }
 .logo img {
   height: 60px;
 }
-
-/* NAV LINKS */
 .nav-links {
   list-style: none;
 }
@@ -67,101 +66,14 @@ a { text-decoration: none; }
 .nav-links li a:hover {
   color: #d4af37;
 }
-
-/* Esconde botão mobile e itens exclusivos de mobile por padrão */
 #btn-mobile,
 .reserve-mobile,
 .social-mobile {
   display: none;
 }
-
-/* Desktop: botão principal visível, menu inline */
 .btn-desktop {
   display: inline-block;
 }
-
-/* MOBILE NAV */
-/* ========================
-   MOBILE (max-width: 768px)
-   ======================== */
-@media (max-width: 768px) {
-  /* esconde o botão que vive fora do menu */
-  .btn-desktop {
-    display: none !important;
-  }
-
-  /* exibe só o ícone de menu na navbar */
-  #btn-mobile {
-    display: block;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #eee;
-  }
-
-  /* deixa o menu off-canvas (escondido), só aparece com .active */
-  .nav-links {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    height: 100vh;
-    background: #111;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    transition: left 0.3s;
-    z-index: 1000;
-  }
-  .nav-links.active {
-    left: 0;
-  }
-
-  /* dentro do menu, exibe o botão e as redes sociais */
-  .reserve-mobile {
-    display: block;
-  }
-  .social-mobile {
-    display: flex;
-    gap: 1rem;
-  }
-
-  /* ajusta tamanho do texto dos links no menu */
-  .nav-links li a {
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-  }
-}
-
-/* =========================
-   DESKTOP (min-width: 769px)
-   ========================= */
-@media (min-width: 769px) {
-  /* esconde itens exclusivos de mobile */
-  #btn-mobile,
-  .reserve-mobile,
-  .social-mobile {
-    display: none !important;
-  }
-
-  /* botão principal fica visível na navbar */
-  .btn-desktop {
-    display: inline-block !important;
-  }
-
-  /* menu inline normal */
-  .nav-links {
-    position: static;
-    flex-direction: row;
-    background: transparent;
-    height: auto;
-    left: auto;
-    gap: 1rem;
-  }
-}
-
-
-/* CAROUSEL */
 .carousel {
   position: relative;
   height: 80vh;
@@ -178,8 +90,6 @@ a { text-decoration: none; }
 .slide.active {
   opacity: 1;
 }
-
-/* Overlay com “Horto Cyber” */
 .overlay {
   position: absolute;
   inset: 0;
@@ -213,8 +123,6 @@ a { text-decoration: none; }
   margin-top: 0.75rem;
   font-style: italic;
 }
-
-/* CAROUSEL INDICATORS */
 .carousel-indicators {
   position: absolute;
   bottom: 1rem;
@@ -234,21 +142,15 @@ a { text-decoration: none; }
 .dot.active {
   opacity: 1;
 }
-
-/* SECTIONS */
 .section-title {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
   color: #d4af37;
 }
-
-/* MENU */
 .section-dark {
   background: #1a1a1a;
 }
-
-/* New Menu Styles */
 .menu {
   --gold: #d9b892;
   --text-light: rgba(217, 184, 146, 0.8);
@@ -337,8 +239,6 @@ a { text-decoration: none; }
   background: black;
   color: var(--gold);
 }
-
-/* AVALIAÇÕES */
 .avaliacoes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -360,8 +260,6 @@ a { text-decoration: none; }
   font-weight: 600;
   color: #d4af37;
 }
-
-/* FOOTER */
 .footer {
   background: #111;
   color: #aaa;
@@ -402,16 +300,12 @@ a { text-decoration: none; }
   border: 0;
   border-radius: 8px;
 }
-
-/* COPYRIGHT */
 .footer .copyright {
   text-align: center;
   margin-top: 1.5rem;
   font-size: 0.9rem;
   color: #666;
 }
-
-/* ANIMATIONS */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -422,22 +316,87 @@ a { text-decoration: none; }
   transform: translateY(0);
 }
 
-/* MOBILE */
+@media (min-width: 769px) {
+  #btn-mobile,
+  .reserve-mobile,
+  .social-mobile {
+    display: none !important;
+  }
+  .btn-desktop {
+    display: inline-block !important;
+  }
+  .nav-links {
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    height: auto;
+    left: auto;
+    gap: 1rem;
+  }
+}
+
+/* MOBILE STYLES (max-width: 768px) */
 @media (max-width: 768px) {
+
+
+
+  :root {
+    --menu-item-shift: -20px;
+  }
+
+
+
+  .btn-desktop {
+    display: none !important;
+  }
+  #btn-mobile {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #eee;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: #111;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: left 0.3s;
+    z-index: 1000;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  .reserve-mobile {
+    display: block;
+  }
+  .social-mobile {
+    display: flex;
+    gap: 1rem;
+  }
+  .nav-links li a {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
   .carousel {
     height: 50vh;
   }
   .overlay h1 {
-    font-size: 6vw;
+    font-size: clamp(2rem, 6vw, 4rem);
   }
   .overlay .line1 {
-    font-size: 25vw;
+    font-size: clamp(4rem, 25vw, 12rem);
   }
   .overlay .line2 {
-    font-size: 15vw;
+    font-size: clamp(3rem, 15vw, 6rem);
   }
   .overlay .slogan {
-    font-size: 3vw;
+    font-size: clamp(1rem, 3vw, 1.5rem);
   }
   .carousel-indicators {
     bottom: 0.5rem;
@@ -453,7 +412,7 @@ a { text-decoration: none; }
     font-size: 2rem;
     margin-bottom: 1.5rem;
   }
-  .menu__grid {
+.menu__grid {
     grid-template-columns: 1fr;
   }
   .menu__title::before,
@@ -462,10 +421,26 @@ a { text-decoration: none; }
   }
   .menu__title::before { left: -2.5rem; }
   .menu__title::after  { right: -2.5rem; }
-  .footer-grid {
-    flex-direction: column;
-    text-align: center;
+
+  .menu__item h3 {
+    display: flex;
+    align-items: center;
+    transform: translateX(var(--menu-item-shift));
   }
+  .menu__item h3 .title-text {
+    flex: 0 1 auto; /* O título ocupa apenas o espaço necessário */
+  }
+  .menu__item h3 .line {
+    flex: 1; /* A linha preenche o espaço disponível */
+    max-width: 50%; /* Limita a largura da linha a 50% */
+    margin: 0 0.5rem; /* Adiciona um pequeno espaço ao redor da linha */
+  }
+  .menu__item h3 .price {
+    flex: 0 1 auto; /* O preço ocupa apenas o espaço necessário */
+    text-align: right;
+  }
+
+
   .footer-map iframe {
     height: 180px;
   }
