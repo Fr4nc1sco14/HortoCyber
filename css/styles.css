@@ -1,6 +1,11 @@
+/* ================================
+   IMPORTS
+   ================================ */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* RESET & BASE */
+/* ================================
+   RESET & BASE
+   ================================ */
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +20,9 @@ body {
 }
 a { text-decoration: none; }
 
-/* UTILS */
+/* ================================
+   UTILITÁRIAS (UTILS)
+   ================================ */
 .flex { display: flex; }
 .space-between { justify-content: space-between; }
 .align-center { align-items: center; }
@@ -26,7 +33,9 @@ a { text-decoration: none; }
   margin: 0 auto;
 }
 
-/* BTN */
+/* ================================
+   BOTÕES (BTN)
+   ================================ */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -42,7 +51,9 @@ a { text-decoration: none; }
   background: #b3952a;
 }
 
-/* DESKTOP STYLES (Base + min-width: 769px) */
+/* ================================
+   NAVBAR
+   ================================ */
 .navbar {
   position: sticky;
   top: 0;
@@ -74,6 +85,10 @@ a { text-decoration: none; }
 .btn-desktop {
   display: inline-block;
 }
+
+/* ================================
+   CAROUSEL
+   ================================ */
 .carousel {
   position: relative;
   height: 80vh;
@@ -90,6 +105,29 @@ a { text-decoration: none; }
 .slide.active {
   opacity: 1;
 }
+.carousel-indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #b3952a;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.dot.active {
+  opacity: 1;
+}
+
+/* ================================
+   OVERLAY (TÍTULO E SLOGAN)
+   ================================ */
 .overlay {
   position: absolute;
   inset: 0;
@@ -123,25 +161,10 @@ a { text-decoration: none; }
   margin-top: 0.75rem;
   font-style: italic;
 }
-.carousel-indicators {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-}
-.dot {
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0.5;
-}
-.dot.active {
-  opacity: 1;
-}
+
+/* ================================
+   SECTIONS E SUBTÍTULOS
+   ================================ */
 .section-title {
   font-size: 2.5rem;
   text-align: center;
@@ -151,6 +174,10 @@ a { text-decoration: none; }
 .section-dark {
   background: #1a1a1a;
 }
+
+/* ================================
+   MENU ESPECIAL
+   ================================ */
 .menu {
   --gold: #d9b892;
   --text-light: rgba(217, 184, 146, 0.8);
@@ -239,6 +266,10 @@ a { text-decoration: none; }
   background: black;
   color: var(--gold);
 }
+
+/* ================================
+   AVALIAÇÕES
+   ================================ */
 .avaliacoes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -260,6 +291,10 @@ a { text-decoration: none; }
   font-weight: 600;
   color: #d4af37;
 }
+
+/* ================================
+   FOOTER
+   ================================ */
 .footer {
   background: #111;
   color: #aaa;
@@ -306,6 +341,10 @@ a { text-decoration: none; }
   font-size: 0.9rem;
   color: #666;
 }
+
+/* ================================
+   ANIMAÇÕES AO ROLAR (SCROLL)
+   ================================ */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -316,6 +355,10 @@ a { text-decoration: none; }
   transform: translateY(0);
 }
 
+/* ================================
+   MEDIA QUERIES
+   ================================ */
+/* Desktop */
 @media (min-width: 769px) {
   #btn-mobile,
   .reserve-mobile,
@@ -335,17 +378,9 @@ a { text-decoration: none; }
   }
 }
 
-/* MOBILE STYLES (max-width: 768px) */
+/* Mobile */
 @media (max-width: 768px) {
-
-
-
-  :root {
-    --menu-item-shift: -20px;
-  }
-
-
-
+  /* Ajuste geral de fonte e layout */
   .btn-desktop {
     display: none !important;
   }
@@ -412,7 +447,7 @@ a { text-decoration: none; }
     font-size: 2rem;
     margin-bottom: 1.5rem;
   }
-.menu__grid {
+  .menu__grid {
     grid-template-columns: 1fr;
   }
   .menu__title::before,
@@ -421,26 +456,16 @@ a { text-decoration: none; }
   }
   .menu__title::before { left: -2.5rem; }
   .menu__title::after  { right: -2.5rem; }
-
   .menu__item h3 {
-    display: flex;
-    align-items: center;
     transform: translateX(var(--menu-item-shift));
   }
-  .menu__item h3 .title-text {
-    flex: 0 1 auto; /* O título ocupa apenas o espaço necessário */
-  }
   .menu__item h3 .line {
-    flex: 1; /* A linha preenche o espaço disponível */
-    max-width: 50%; /* Limita a largura da linha a 50% */
-    margin: 0 0.5rem; /* Adiciona um pequeno espaço ao redor da linha */
+    max-width: 50%;
+    margin: 0 0.5rem;
   }
   .menu__item h3 .price {
-    flex: 0 1 auto; /* O preço ocupa apenas o espaço necessário */
     text-align: right;
   }
-
-
   .footer-map iframe {
     height: 180px;
   }
