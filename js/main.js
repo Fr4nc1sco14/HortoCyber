@@ -1,6 +1,6 @@
 // MOBILE MENU TOGGLE
 const btnMobile = document.getElementById('btn-mobile');
-const navLinks = document.querySelector('.nav-links');
+const navLinks = document.getElementById('menu-list'); // usar o ID
 
 if (btnMobile && navLinks) {
   btnMobile.addEventListener('click', () => {
@@ -12,13 +12,13 @@ if (btnMobile && navLinks) {
 const carousel = document.querySelector('.carousel');
 const slides = document.querySelectorAll('.slide');
 const indicatorsContainer = document.querySelector('.carousel-indicators');
-
+let dots = [];
 let currentSlide = 0;
 let startX = 0;
 let isDragging = false;
 
-// Cria indicadores (dots)
-if (indicatorsContainer && slides.length) {
+// Cria indicadores (dots) dinamicamente
+if (indicatorsContainer && slides.length > 0) {
   slides.forEach((_, i) => {
     const dot = document.createElement('span');
     dot.classList.add('dot');
@@ -26,26 +26,39 @@ if (indicatorsContainer && slides.length) {
     dot.addEventListener('click', () => goToSlide(i));
     indicatorsContainer.appendChild(dot);
   });
+  // Seleciona todos os dots após criação
+  dots = indicatorsContainer.querySelectorAll('.dot');
 }
 
-const dots = document.querySelectorAll('.dot');
-
 function goToSlide(index) {
-  if (!slides.length) return;
+  if (slides.length === 0) return;
+  // remove estado anterior
   slides[currentSlide].classList.remove('active');
   if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
 
+  // atualiza índice
   currentSlide = index;
 
+  // adiciona estado ativo
   slides[currentSlide].classList.add('active');
   if (dots[currentSlide]) dots[currentSlide].classList.add('active');
 }
 
-// Autoplay a cada 5s
-setInterval(() => {
-  let nextIndex = (currentSlide + 1) % slides.length;
-  goToSlide(nextIndex);
-}, 5000);
+// autoplay a cada 5s
+if (slides.length > 1) {
+  setInterval(() => {
+    const nextIndex = (currentSlide + 1) % slides.length;
+    goToSlide(nextIndex);
+  }, 5000);
+}
+
+// Funções de navegação no carousel
+function nextSlide() {
+  goToSlide((currentSlide + 1) % slides.length);
+}
+function prevSlide() {
+  goToSlide((currentSlide - 1 + slides.length) % slides.length);
+}
 
 // Swipe / drag support
 if (carousel) {
@@ -54,7 +67,6 @@ if (carousel) {
     startX = e.touches[0].clientX;
     isDragging = true;
   });
-
   carousel.addEventListener('touchmove', e => {
     if (!isDragging) return;
     const diff = startX - e.touches[0].clientX;
@@ -63,7 +75,6 @@ if (carousel) {
       isDragging = false;
     }
   });
-
   carousel.addEventListener('touchend', () => {
     isDragging = false;
   });
@@ -73,7 +84,6 @@ if (carousel) {
     startX = e.clientX;
     isDragging = true;
   });
-
   carousel.addEventListener('mousemove', e => {
     if (!isDragging) return;
     const diff = startX - e.clientX;
@@ -82,20 +92,11 @@ if (carousel) {
       isDragging = false;
     }
   });
-
   ['mouseup', 'mouseleave'].forEach(evt =>
     carousel.addEventListener(evt, () => {
       isDragging = false;
     })
   );
-}
-
-function nextSlide() {
-  goToSlide((currentSlide + 1) % slides.length);
-}
-
-function prevSlide() {
-  goToSlide((currentSlide - 1 + slides.length) % slides.length);
 }
 
 // Inicializa mostrando a primeira slide
@@ -117,8 +118,11 @@ function checkScroll() {
 window.addEventListener('scroll', checkScroll);
 checkScroll(); // ao carregar a página
 
-// Evento para o botão "Descubra Mais"
-document.getElementById('btnDescobrir').addEventListener('click', function(e) {
-  e.preventDefault();
-  alert('Visite-nos em breve no Horto do Cyber Café!');
-});
+// EVENTO PARA O BOTÃO "Descubra Mais"
+const btnDescobrir = document.getElementById('btnDescobrir');
+if (btnDescobrir) {
+  btnDescobrir.addEventListener('click', e => {
+    e.preventDefault();
+    alert('Visite-nos em breve no Horto do Cyber Café!');
+  });
+}

@@ -12,30 +12,17 @@ body {
   color: #eee;
   line-height: 1.6;
 }
-a {
-  text-decoration: none;
-}
+a { text-decoration: none; }
 
 /* UTILS */
-.flex {
-  display: flex;
-}
-.space-between {
-  justify-content: space-between;
-}
-.align-center {
-  align-items: center;
-}
-.gap {
-  gap: 1rem;
-}
+.flex { display: flex; }
+.space-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.gap { gap: 1rem; }
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-}
-.section {
-  padding: 4rem 0;
 }
 
 /* BTN */
@@ -71,34 +58,108 @@ a {
 .nav-links {
   list-style: none;
 }
-.nav-links li {
-  list-style: none;
-}
-.nav-links a {
+.nav-links li a {
   color: #eee;
   padding: 0.5rem 1rem;
   transition: color 0.2s;
   font-weight: 700;
 }
-.nav-links a:hover {
+.nav-links li a:hover {
   color: #d4af37;
 }
 
-/* Botão desktop / mobile */
-.btn-desktop {
-  display: inline-block;
-}
-.reserve-mobile {
+/* Esconde botão mobile e itens exclusivos de mobile por padrão */
+#btn-mobile,
+.reserve-mobile,
+.social-mobile {
   display: none;
 }
 
-/* MOBILE NAV */
-#btn-mobile {
-  display: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: #eee;
+/* Desktop: botão principal visível, menu inline */
+.btn-desktop {
+  display: inline-block;
 }
+
+/* MOBILE NAV */
+/* ========================
+   MOBILE (max-width: 768px)
+   ======================== */
+@media (max-width: 768px) {
+  /* esconde o botão que vive fora do menu */
+  .btn-desktop {
+    display: none !important;
+  }
+
+  /* exibe só o ícone de menu na navbar */
+  #btn-mobile {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #eee;
+  }
+
+  /* deixa o menu off-canvas (escondido), só aparece com .active */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: #111;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: left 0.3s;
+    z-index: 1000;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+
+  /* dentro do menu, exibe o botão e as redes sociais */
+  .reserve-mobile {
+    display: block;
+  }
+  .social-mobile {
+    display: flex;
+    gap: 1rem;
+  }
+
+  /* ajusta tamanho do texto dos links no menu */
+  .nav-links li a {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+}
+
+/* =========================
+   DESKTOP (min-width: 769px)
+   ========================= */
+@media (min-width: 769px) {
+  /* esconde itens exclusivos de mobile */
+  #btn-mobile,
+  .reserve-mobile,
+  .social-mobile {
+    display: none !important;
+  }
+
+  /* botão principal fica visível na navbar */
+  .btn-desktop {
+    display: inline-block !important;
+  }
+
+  /* menu inline normal */
+  .nav-links {
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    height: auto;
+    left: auto;
+    gap: 1rem;
+  }
+}
+
 
 /* CAROUSEL */
 .carousel {
@@ -363,42 +424,6 @@ a {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  #btn-mobile {
-    display: block;
-  }
-  .btn-desktop {
-    display: none;
-  }
-  .reserve-mobile {
-    display: inline-block;
-    margin: 1rem 0;
-    padding: 0.8rem 2rem;
-    font-size: 1.2rem;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    height: 100vh;
-    background: #111;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    transition: left 0.3s;
-    z-index: 1000;
-  }
-  .nav-links.active {
-    left: 0;
-  }
-  .nav-links li a {
-    font-size: 1.5rem;
-    padding: 1.5rem;
-  }
-
   .carousel {
     height: 50vh;
   }
@@ -421,7 +446,6 @@ a {
     width: 8px;
     height: 8px;
   }
-
   .section {
     padding: 2rem 1rem;
   }
@@ -429,30 +453,6 @@ a {
     font-size: 2rem;
     margin-bottom: 1.5rem;
   }
-
-  .cards-grid,
-  .avaliacoes-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .card,
-  .avaliacao-card {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-  .card h3 {
-    font-size: 1.5rem;
-  }
-  .card p,
-  .avaliacao-card p {
-    font-size: 1rem;
-  }
-
   .menu__grid {
     grid-template-columns: 1fr;
   }
@@ -462,7 +462,6 @@ a {
   }
   .menu__title::before { left: -2.5rem; }
   .menu__title::after  { right: -2.5rem; }
-
   .footer-grid {
     flex-direction: column;
     text-align: center;

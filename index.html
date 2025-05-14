@@ -13,21 +13,38 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container flex space-between align-center">
+      <!-- Logo -->
       <a href="#" class="logo">
         <img src="images/LogoHorto.png" alt="Logo Horto Cyber">
       </a>
+
+      <!-- Botão mobile -->
       <span id="btn-mobile">☰</span>
+
+      <!-- Menu (desktop e mobile) -->
       <ul class="nav-links flex gap" id="menu-list">
         <li><a href="#home">Home</a></li>
         <li><a href="#sobre">Sobre Nós</a></li>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#avaliacoes">Avaliações</a></li>
-        <li><a href="#" class="btn btn-primary reserve-mobile">Reserve uma Mesa</a></li>
+
+        <!-- Botão “Reserve uma Mesa” só para mobile -->
+        <li class="reserve-mobile">
+          <a href="#" class="btn btn-primary">Reserve uma Mesa</a>
+        </li>
+
+        <!-- Ícones sociais no menu mobile -->
         <li class="social-mobile">
-          <a href="https://instagram.com/seuPerfil" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://facebook.com/seuPerfil" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com/seuPerfil" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com/seuPerfil" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
         </li>
       </ul>
+
+      <!-- Botão desktop -->
       <a href="#" class="btn btn-primary btn-desktop">Reserve uma Mesa</a>
     </div>
   </nav>
@@ -58,7 +75,7 @@
         <div class="linha"></div>
         <p class="descricao">O Horto do Cyber Café, localizado na Póvoa de Lanhoso, é um espaço onde a hospitalidade tradicional portuguesa se encontra com a inovação digital. Fundado em 2018, oferecemos uma variedade de cafés especiais, refeições ligeiras e cocktails exclusivos. A nossa esplanada promove um ambiente descontraído com música ao vivo aos fins de semana.</p>
         <p class="frase">Convida a descobrir novos sabores e experiências tecnológicas num só lugar.</p>
-        <a href="#" class="btn" id="btnDescobrir">Descubra Mais</a>
+        <a href="#menu" class="btn" id="btnDescobrir">Descubra Mais</a>
       </div>
     </div>
   </section>
