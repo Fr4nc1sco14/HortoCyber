@@ -200,7 +200,8 @@ a { text-decoration: none; }
   font-size: 2.2rem;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  
 }
 .menu__title::before,
 .menu__title::after {
@@ -456,6 +457,12 @@ a { text-decoration: none; }
   }
   .menu__title::before { left: -2.5rem; }
   .menu__title::after  { right: -2.5rem; }
+
+  /* ← Aqui definimos o deslocamento X de todos os itens de menu */
+  .menu__item {
+    --menu-item-shift: -30px;
+  }
+
   .menu__item h3 {
     transform: translateX(var(--menu-item-shift));
   }
