@@ -1,6 +1,8 @@
+// script.js
+
 // MOBILE MENU TOGGLE
 const btnMobile = document.getElementById('btn-mobile');
-const navLinks = document.getElementById('menu-list'); // usar o ID
+const navLinks = document.getElementById('menu-list');
 
 if (btnMobile && navLinks) {
   btnMobile.addEventListener('click', () => {
@@ -8,16 +10,44 @@ if (btnMobile && navLinks) {
   });
 }
 
-// CAROUSEL SETUP
+// CAROUSEL & TESTIMONIALS SETUP
+const testimonials = [
+  {
+    text: "Lugar muito aconchegante, ao ar livre e bem descontraído. Música boa e ótimo atendimento!",
+    author: "Kássia Guimarães",
+    title: "Cliente do Restaurante",
+    link: "https://g.co/kgs/v6Kjdrp"
+  },
+  {
+    text: "Funcionário muito simpático, bebi Sangria de Maracujá que era realmente boa e comi Ovos Roto mais Batatas Fritas com cheddar e bacon, ambos deliciosos! O espaço é incrível e muito acolhedor.",
+    author: "Helena Couto",
+    title: "Cliente do Restaurante",
+    link: "https://g.co/kgs/D6YXHjC"
+  },
+  {
+    text: "Muito bom ambiente. Música agradável e funcionários simpáticos. Boas bebidas e bons crepes.",
+    author: "André Fonseca",
+    title: "Cliente do Restaurante",
+    link: "https://g.co/kgs/AS5zWC8"
+  }
+];
+
+let currentIndex = 0;
+let autoSlideInterval;
+
+// Elementos do testimonial/carousel
 const carousel = document.querySelector('.carousel');
 const slides = document.querySelectorAll('.slide');
 const indicatorsContainer = document.querySelector('.carousel-indicators');
-let dots = [];
-let currentSlide = 0;
-let startX = 0;
-let isDragging = false;
+const contentEl    = document.querySelector('.testimonial-content');
+const textEl       = document.getElementById('testimonial-text');
+const authorEl     = document.getElementById('testimonial-author');
+const titleEl      = document.getElementById('testimonial-title');
+const prevBtn      = document.getElementById('prev');
+const nextBtn      = document.getElementById('next');
 
-// Cria indicadores (dots) dinamicamente
+// Cria indicadores (dots) dinamicamente, se existir container
+let dots = [];
 if (indicatorsContainer && slides.length > 0) {
   slides.forEach((_, i) => {
     const dot = document.createElement('span');
@@ -26,43 +56,71 @@ if (indicatorsContainer && slides.length > 0) {
     dot.addEventListener('click', () => goToSlide(i));
     indicatorsContainer.appendChild(dot);
   });
-  // Seleciona todos os dots após criação
   dots = indicatorsContainer.querySelectorAll('.dot');
 }
 
+// Funções de testimonial/carousel
+function showTestimonial(index) {
+  const t = testimonials[index];
+  textEl.textContent = t.text;
+  authorEl.innerHTML = `<a href="${t.link}" target="_blank" rel="noopener">${t.author}</a>`;
+  titleEl.textContent = t.title;
+}
+
+function changeTestimonial(newIndex) {
+  contentEl.classList.add('fading');
+  setTimeout(() => {
+    showTestimonial(newIndex);
+    contentEl.classList.remove('fading');
+  }, 400);
+}
+
 function goToSlide(index) {
-  if (slides.length === 0) return;
-  // remove estado anterior
-  slides[currentSlide].classList.remove('active');
-  if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
+  // parte visual do carousel (slides e dots), se existirem
+  if (slides.length) {
+    slides[currentIndex]?.classList.remove('active');
+    dots[currentIndex]?.classList.remove('active');
+  }
 
-  // atualiza índice
-  currentSlide = index;
+  currentIndex = index;
 
-  // adiciona estado ativo
-  slides[currentSlide].classList.add('active');
-  if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+  if (slides.length) {
+    slides[currentIndex].classList.add('active');
+    dots[currentIndex]?.classList.add('active');
+  }
+
+  // atualiza testimonial
+  changeTestimonial(currentIndex);
 }
 
-// autoplay a cada 5s
-if (slides.length > 1) {
-  setInterval(() => {
-    const nextIndex = (currentSlide + 1) % slides.length;
-    goToSlide(nextIndex);
-  }, 5000);
+function goNext() {
+  goToSlide((currentIndex + 1) % testimonials.length);
 }
 
-// Funções de navegação no carousel
-function nextSlide() {
-  goToSlide((currentSlide + 1) % slides.length);
-}
-function prevSlide() {
-  goToSlide((currentSlide - 1 + slides.length) % slides.length);
+function goPrev() {
+  goToSlide((currentIndex - 1 + testimonials.length) % testimonials.length);
 }
 
-// Swipe / drag support
+function startAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(goNext, 5000);
+}
+
+// Botões prev/next
+prevBtn?.addEventListener('click', () => {
+  goPrev();
+  startAutoSlide();
+});
+nextBtn?.addEventListener('click', () => {
+  goNext();
+  startAutoSlide();
+});
+
+// Swipe / drag support no carousel
 if (carousel) {
-  // Touch events
+  let startX = 0;
+  let isDragging = false;
+
   carousel.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
     isDragging = true;
@@ -71,15 +129,12 @@ if (carousel) {
     if (!isDragging) return;
     const diff = startX - e.touches[0].clientX;
     if (Math.abs(diff) > 50) {
-      diff > 0 ? nextSlide() : prevSlide();
+      diff > 0 ? goNext() : goPrev();
       isDragging = false;
     }
   });
-  carousel.addEventListener('touchend', () => {
-    isDragging = false;
-  });
+  carousel.addEventListener('touchend', () => isDragging = false);
 
-  // Mouse drag events
   carousel.addEventListener('mousedown', e => {
     startX = e.clientX;
     isDragging = true;
@@ -88,23 +143,22 @@ if (carousel) {
     if (!isDragging) return;
     const diff = startX - e.clientX;
     if (Math.abs(diff) > 50) {
-      diff > 0 ? nextSlide() : prevSlide();
+      diff > 0 ? goNext() : goPrev();
       isDragging = false;
     }
   });
   ['mouseup', 'mouseleave'].forEach(evt =>
-    carousel.addEventListener(evt, () => {
-      isDragging = false;
-    })
+    carousel.addEventListener(evt, () => isDragging = false)
   );
 }
 
-// Inicializa mostrando a primeira slide
-goToSlide(currentSlide);
+// Inicialização
+showTestimonial(currentIndex);
+startAutoSlide();
 
 // SCROLL ANIMATIONS
 const animateElements = document.querySelectorAll('.animate-on-scroll');
-const SCROLL_THRESHOLD = 0.8; // 80% da altura da viewport
+const SCROLL_THRESHOLD = 0.8;
 
 function checkScroll() {
   animateElements.forEach(el => {
@@ -116,9 +170,9 @@ function checkScroll() {
 }
 
 window.addEventListener('scroll', checkScroll);
-checkScroll(); // ao carregar a página
+checkScroll();
 
-// EVENTO PARA O BOTÃO "Descubra Mais"
+// BOTÃO “Descubra Mais”
 const btnDescobrir = document.getElementById('btnDescobrir');
 if (btnDescobrir) {
   btnDescobrir.addEventListener('click', e => {

@@ -262,6 +262,7 @@ a { text-decoration: none; }
   background: transparent;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  margin-bottom: 30px;
 }
 .menu__btn:hover {
   background: black;

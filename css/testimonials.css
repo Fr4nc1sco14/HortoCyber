@@ -1,0 +1,232 @@
+/* style.css */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', serif;
+  background: #000;
+  color: #fff;
+}
+
+/* Seção de Testimonials com background cobrindo tudo */
+.testimonials {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url('../images/testimonialsImage.png') center/cover no-repeat;
+}
+
+/* Overlay escuro para contraste */
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Container principal (acima do overlay) */
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+}
+
+/* LADO ESQUERDO */
+.testimonials__left {
+  flex: 1;
+  padding: 60px 40px;
+  position: relative;
+}
+
+.subtitle {
+  color: #b38642;
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #b38642;
+  margin-top: 8px;
+}
+
+.quote-marks img {
+  width: 60px;
+  opacity: 0.3;
+  position: absolute;
+  top: 40px;
+  left: 360px;
+}
+
+/* Testemunho e animação */
+.testimonial-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* usa altura automática, permitindo expansão */
+  min-height: 350px;
+  padding: 40px;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.testimonial-content.fading {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.text {
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  flex: 1;
+  /* permite que o texto expanda o container em vez de rolar */
+  overflow: visible;
+  margin: 20px 0;
+}
+
+.author {
+  margin-bottom: 40px;
+}
+
+.author-name a {
+  color: #b38642;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.author-name a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.author-title {
+  font-style: italic;
+  color: #b38642;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* Navegação */
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #b38642;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav button:hover {
+  color: #fff;
+}
+
+/* LADO DIREITO */
+.testimonials__right {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  /* Container empilha colunas e ajusta espaçamentos */
+  .container {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  /* Left e right ocupam 100% da largura */
+  .testimonials__left,
+  .testimonials__right {
+    flex: none;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  /* Diminuir fontes e espaçamentos para legendas e títulos */
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+  .title {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  .title::after {
+    width: 40px;
+    margin-top: 6px;
+  }
+
+  /* Reposiciona ou oculta as aspas decorativas */
+  .quote-marks img {
+    width: 40px;
+    top: 20px;
+    left: 20px;
+    opacity: 0.2;
+  }
+
+  /* Ajuste do bloco de texto e altura flexível */
+  .testimonial-content {
+    /* permite expansão vertical em vez de altura fixa */
+    min-height: auto;
+    padding: 20px;
+  }
+  .text {
+    font-size: 1rem;
+    margin: 16px 0;
+    /* sem max-height e sem overflow */
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Autor e navegação mais compactos */
+  .author {
+    margin-bottom: 24px;
+  }
+  .author-name a {
+    font-size: 1rem;
+  }
+  .author-title {
+    font-size: 0.9rem;
+  }
+  .nav {
+    justify-content: center;
+    gap: 12px;
+  }
+  .nav button {
+    font-size: 1.2rem;
+  }
+
+  /* Define altura fixa menor para a parte direita (imagem) */
+  .testimonials__right {
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+  }
+}

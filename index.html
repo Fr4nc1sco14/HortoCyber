@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:ital@0;1&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/sobre.css">
+  <link rel="stylesheet" href="css/testimonials.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -138,23 +139,40 @@
   </section>
 
   <!-- Avaliações -->
-  <section class="section" id="avaliacoes">
+  <section class="testimonials">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">O Que Dizem Nossos Clientes</h2>
-      <div class="avaliacoes-grid animate-on-scroll">
-        <div class="avaliacao-card">
-          <p>"Comida incrível e atendimento impecável!"</p>
-          <span>- Maria S.</span>
+      
+      <div class="testimonials__left">
+        <p class="subtitle">Livro de Visitas</p>
+        <h2 class="title">Testemunhos de Clientes</h2>
+        
+        <div class="testimonial-content">
+          <div class="quote-marks">
+            <img src="images/aspas.png" alt="Aspas decorativas">
+          </div>
+          <p class="text" id="testimonial-text">
+            <!-- Texto inserido via JS -->
+          </p>
+          <div class="author">
+            <p class="author-name" id="testimonial-author">
+              <!-- Nome inserido via JS -->
+            </p>
+            <p class="author-title" id="testimonial-title">
+              <!-- Título inserido via JS -->
+            </p>
+          </div>
+          <div class="nav">
+            <button id="prev">&larr;</button>
+            <button id="next">&rarr;</button>
+          </div>
         </div>
-        <div class="avaliacao-card">
-          <p>"Melhor restaurante da cidade, sem dúvida."</p>
-          <span>- João P.</span>
-        </div>
-        <div class="avaliacao-card">
-          <p>"Ambiente acolhedor e pratos deliciosos."</p>
-          <span>- Ana L.</span>
-        </div>
+        
       </div>
+
+      <div class="testimonials__right">
+        <!-- Background via CSS -->
+      </div>
+
     </div>
   </section>
 
