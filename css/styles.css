@@ -360,119 +360,147 @@ a { text-decoration: none; }
 /* ================================
    MEDIA QUERIES
    ================================ */
-/* Desktop */
-@media (min-width: 769px) {
-  #btn-mobile,
-  .reserve-mobile,
-  .social-mobile {
-    display: none !important;
-  }
-  .btn-desktop {
-    display: inline-block !important;
-  }
-  .nav-links {
-    position: static;
-    flex-direction: row;
-    background: transparent;
-    height: auto;
-    left: auto;
-    gap: 1rem;
-  }
-}
 
-/* Mobile */
+
+/* Mobile Styles - Max Width 768px */
 @media (max-width: 768px) {
-  /* Ajuste geral de fonte e layout */
-  .btn-desktop {
+  /* Container: flex with space between logo and hamburger */
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* Hide desktop button and nav-links by default */
+  .btn-desktop,
+  .nav-links {
     display: none !important;
   }
+
+  /* Show mobile menu button */
   #btn-mobile {
     display: block;
-    cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: #eee;
+    cursor: pointer;
+    z-index: 1100;
   }
-  .nav-links {
+
+  /* Slide-in mobile nav */
+  .nav-links.mobile {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 80%;
+    width: 75%;
     height: 100vh;
     background: #111;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    transition: left 0.3s;
-    z-index: 1000;
+    gap: 1.25rem;
+    transition: left 0.3s ease-in-out;
+    z-index: 1050;
   }
-  .nav-links.active {
+  .nav-links.mobile.active {
     left: 0;
   }
-  .reserve-mobile {
-    display: block;
-  }
-  .social-mobile {
-    display: flex;
-    gap: 1rem;
-  }
-  .nav-links li a {
+
+  /* Mobile nav link styles */
+  .nav-links.mobile li a {
     font-size: 1.5rem;
     padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
   }
+
+  /* Show reserve button and social icons inside mobile nav */
+  .reserve-mobile,
+  .social-mobile {
+    display: flex;
+    justify-content: center;
+  }
+  .reserve-mobile a {
+    width: 80%;
+  }
+  .social-mobile a {
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+  }
+
+  /* Carousel adjustments */
   .carousel {
     height: 50vh;
   }
   .overlay h1 {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(2rem, 10vw, 3rem);
   }
   .overlay .line1 {
-    font-size: clamp(4rem, 25vw, 12rem);
+    font-size: clamp(4rem, 25vw, 8rem);
   }
   .overlay .line2 {
-    font-size: clamp(3rem, 15vw, 6rem);
+    font-size: clamp(2.5rem, 15vw, 5rem);
   }
   .overlay .slogan {
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(1rem, 3vw, 1.25rem);
   }
-  .carousel-indicators {
-    bottom: 0.5rem;
-  }
-  .dot {
-    width: 8px;
-    height: 8px;
-  }
+
+  /* Section padding */
   .section {
     padding: 2rem 1rem;
   }
   .section-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
   }
+
+  /* Menu grid to single column */
   .menu__grid {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .menu__title::before,
   .menu__title::after {
-    width: 2rem;
-  }
-  .menu__title::before { left: -2.5rem; }
-  .menu__title::after  { right: -2.5rem; }
-
-  /* ← Aqui definimos o deslocamento X de todos os itens de menu */
-  .menu__item {
-    --menu-item-shift: -30px;
+    width: 1.5rem;
   }
 
+  /* Shifted menu item headings */
   .menu__item h3 {
-    transform: translateX(var(--menu-item-shift));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: none;
+    font-size: 1.1rem;
   }
   .menu__item h3 .line {
-    max-width: 50%;
-    margin: 0 0.5rem;
+    width: 50%;
+    margin: 0.5rem 0;
   }
   .menu__item h3 .price {
-    text-align: right;
+    align-self: flex-end;
+  }
+
+  /* Testimonials stacking */
+  .testimonials {
+    padding: 2rem 1rem;
+  }
+  .testimonials .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .testimonials__left,
+  .testimonials__right {
+    width: 100%;
+  }
+
+  /* Footer adjustments */
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
   .footer-map iframe {
     height: 180px;
@@ -480,4 +508,10 @@ a { text-decoration: none; }
   .footer-social a {
     margin: 0 0.5rem;
   }
+
+  /* Ensure body font sizes scale */
+  body {
+    font-size: 14px;
+  }
 }
+
