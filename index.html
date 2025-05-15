@@ -8,8 +8,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Playfair+Display:ital@0;1&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/carousel.css">
   <link rel="stylesheet" href="css/sobre.css">
+  <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/testimonials.css">
+  <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -28,7 +32,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#sobre">Sobre Nós</a></li>
         <li><a href="#menu">Menu</a></li>
-        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#avaliaçoes">Avaliações</a></li>
 
         <!-- Botão “Reserve uma Mesa” só para mobile -->
         <li class="reserve-mobile">
@@ -140,7 +144,7 @@
   </section>
 
   <!-- Avaliações -->
-  <section class="testimonials">
+  <section class="testimonials" id="avaliaçoes">
     <div class="container">
       
       <div class="testimonials__left">
@@ -177,31 +181,46 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-contact">
-        <h4>Contato</h4>
-        <p>Email: contato@sabor.com</p>
-        <p>Telefone: (+351) 964 883 971</p>
-      </div>
-      <div class="footer-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.3486438784585!2d-8.282389624455577!3d41.58333978381855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24e2e24660e803%3A0xd304fd74be808bcf!2sHorto%20Do%20Cyber!5e0!3m2!1spt-PT!2spt!4v1746727489866!5m2!1spt-PT!2spt" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <div class="footer-social">
-        <h4>Siga-nos</h4>
-        <a href="https://www.facebook.com/hortodocyber/?locale=pt_BR" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/hortodocyber/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      </div>
-      <div class="footer-hours">
-        <h4>Horário</h4>
-        <p>Seg - Dom: 12h - 02h</p>
-      </div>
+  <!-- footer -->
+<footer class="footer">
+  <!-- Mapa isolado no topo -->
+  <div class="footer-map-full">
+    <iframe
+      class="Mymap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2984.3486438785058!2d-8.282389623552529!3d41.5833397838172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24e2e24660e803%3A0xd304fd74be808bcf!2sHorto%20Do%20Cyber!5e0!3m2!1spt-PT!2spt!4v1747334795083!5m2!1spt-PT!2spt"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- Container com os restantes elementos -->
+  <div class="container footer-grid">
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <p>Email: contato@sabor.com</p>
+      <p>Telefone: (+351) 964 883 971</p>
     </div>
-    <div class="container copyright">
-      <p>© 2025 Horto Cyber. Todos os direitos reservados.</p>
+    <div class="footer-social">
+      <h4>Siga-nos</h4>
+      <a href="https://www.facebook.com/hortodocyber/?locale=pt_BR" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/hortodocyber/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
     </div>
-  </footer>
+    <div class="footer-hours">
+      <h4>Horário</h4>
+      <p>Seg - Dom: 12h - 02h</p>
+    </div>
+  </div>
+
+  <div class="container copyright">
+    <p>© 2025 Horto Cyber. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+
 
   <script src="js/main.js"></script>
 </body>

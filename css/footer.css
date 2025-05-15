@@ -1,0 +1,124 @@
+/* ================================
+   File: footer.css
+   ================================ */
+
+.footer {
+  background: #111;
+  color: #aaa;
+  padding: 1rem 0 1rem;
+}
+
+.Mymap {
+    filter: grayscale(100%) invert(100%);
+}
+/* Seção de mapa em largura total */
+.footer-map-full {
+  background: #000;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.footer-map-full iframe {
+  width: 100%;       /* ocupa 100% da largura */
+  height: 350px;     /* altura desktop */
+  border: 0;
+  display: block;
+}
+
+/* Grid dos restantes itens */
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+.footer-contact,
+.footer-hours {
+  flex: 1 1 200px;
+}
+.footer-social {
+  flex: 1 1 150px;
+}
+.footer-social h4 {
+  margin-bottom: 0.5rem;
+  color: #d4af37;
+}
+.footer-social a {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #aaa;
+  transition: color 0.2s;
+}
+.footer-social a:hover {
+  color: #fff;
+}
+
+.footer .copyright {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Smartphones (até 480px) */
+@media only screen and (max-width: 480px) {
+  /* reduz altura do mapa no mobile mais compacto */
+  .footer-map-full iframe {
+    height: 200px;
+  }
+
+  /* empilha tudo, centra e reduz espaçamentos */
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  /* itens de contato e horário com largura total e margem */
+  .footer-contact,
+  .footer-hours,
+  .footer-social {
+    flex: 1 1 100%;
+    max-width: 320px;
+  }
+
+  /* ícones sociais menores e espaçamento reduzido */
+  .footer-social a {
+    font-size: 1.25rem;
+    margin: 0 0.25rem;
+  }
+
+  /* reduz padding vertical do footer */
+  .footer {
+    padding: 0.75rem 0;
+  }
+
+  /* diminui o texto do copyright */
+  .footer .copyright {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+}
+
+
+/* Tablets e mobiles médios (até 768px) */
+@media only screen and (max-width: 768px) {
+  /* já existente: altura do mapa reduzida */
+  .footer-map-full iframe {
+    height: 250px;
+  }
+
+  /* mantém o empilhamento porém com espaçamento ligeiramente maior */
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* margens laterais intermediárias nos ícones */
+  .footer-social a {
+    margin: 0 0.5rem;
+  }
+}
+
