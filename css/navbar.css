@@ -10,6 +10,7 @@
   backdrop-filter: blur(6px);
   padding: 1rem 0;
 }
+
 .navbar .container {
   display: flex;
   justify-content: space-between;
@@ -17,62 +18,63 @@
   width: 100%;
   padding: 0 1rem;
 }
+
+/* Logo and mobile toggle ordering */
+.navbar .logo {
+  order: 1;
+}
+#btn-mobile {
+  order: 2;
+}
+
 .logo img {
   height: 60px;
 }
+
+/* Nav-links (desktop) */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
+
+/* Links dentro do nav */
 .nav-links li a {
   color: #eee;
   padding: 0.5rem 1rem;
   font-weight: 700;
   transition: color 0.2s;
 }
+
 .nav-links li a:hover {
   color: #d4af37;
 }
+
+/* Botão “Reserve” no desktop */
 .btn-desktop {
   display: inline-block;
 }
-/* Mobile Nav Toggle */
+
+/* Toggle móvel, escondido por padrão */
 #btn-mobile {
   display: none;
   font-size: 1.75rem;
   color: #eee;
+  background: none;
+  border: none;
   cursor: pointer;
   z-index: 1100;
 }
-.nav-links.mobile {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 75%;
-  height: 100vh;
-  background: #111;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  transition: left 0.3s ease-in-out;
-  z-index: 1050;
-}
-.nav-links.mobile.active {
-  display: flex;
-  left: 0;
-}
+
+/* Itens exclusivos do menu mobile, escondidos no desktop */
 .reserve-mobile,
 .social-mobile {
   display: none;
 }
 
-
-/* Smartphones (até 480px) */
+/* ===== Estilos para Smartphones (até 480px) ===== */
 @media only screen and (max-width: 480px) {
-  /* Esconde nav-links e botão desktop, mostra toggle */
+  /* esconde nav-links e botão desktop, mostra toggle */
   .nav-links,
   .btn-desktop {
     display: none !important;
@@ -80,26 +82,56 @@
   #btn-mobile {
     display: block;
   }
-  .nav-links.mobile {
-    display: flex;
-    left: 0;
+
+  /* deslocar logo para a esquerda no mobile */
+  .navbar .logo {
+    margin-left: -300px; /* ajustar conforme necessário */
   }
 
-  /* Container mantém layout em linha: logo à esquerda, toggle à direita */
+  /* container mantém logo e botão na mesma linha */
   .navbar .container {
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0 0.75rem;
-  }
-  .logo img {
-    height: 50px;
-  }
-  #btn-mobile {
-    font-size: 1.5rem;
   }
 
-  /* Ajustes de reserve/social móveis */
+  /* menu off-screen */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background: #111;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    padding-top: 4rem;        /* espaço para o “X" */
+    transition: left 0.3s ease-in-out;
+    z-index: 1050;
+  }
+
+  /* slide-in ao ativar */
+  .nav-links.active {
+    display: flex !important;
+    animation: slideIn 0.3s forwards;
+    left: 0 !important;
+  }
+
+  /* animação */
+  @keyframes slideIn {
+    from { left: -100%; }
+    to   { left:    0; }
+  }
+
+  /* posicionar o “X” no topo direito do painel */
+  #btn-mobile {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.25rem;
+    font-size: 1.75rem;
+  }
+
+  /* mostra itens mobile-only dentro do menu */
   .reserve-mobile,
   .social-mobile {
     display: flex;
@@ -111,11 +143,18 @@
     font-size: 1.25rem;
     margin: 0 0.5rem;
   }
+
+  /* ajustes de layout */
+  .navbar .container {
+    padding: 0 0.75rem;
+  }
+  .logo img {
+    height: 50px;
+  }
 }
 
-/* Tablets e dispositivos médios (até 768px) */
+/* ===== Estilos para Tablets e dispositivos médios (até 768px) ===== */
 @media only screen and (max-width: 768px) {
-  /* Mesmas regras de ocultar desktop e mostrar mobile */
   .nav-links,
   .btn-desktop {
     display: none !important;
@@ -123,27 +162,45 @@
   #btn-mobile {
     display: block;
   }
-  .nav-links.mobile {
-    display: flex;
-    left: 0;
+
+  /* deslocar logo para a esquerda no tablet */
+  .navbar .logo {
+    margin-left: -300px;
   }
 
-  /* Layout em linha para logo e toggle */
   .navbar .container {
     justify-content: space-between;
-    padding: 0 1rem;
   }
-  .logo img {
-    height: 55px;
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100vh;
+    background: #111;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding-top: 4rem;
+    transition: left 0.3s ease-in-out;
+    z-index: 1050;
   }
+
+  .nav-links.active {
+    display: flex !important;
+    animation: slideIn 0.3s forwards;
+    left: 0 !important;
+  }
+
   #btn-mobile {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.25rem;
     font-size: 1.75rem;
   }
 
-  /* Espaçamento interno do menu mobile */
-  .nav-links.mobile {
-    gap: 1.5rem;
-  }
   .reserve-mobile,
   .social-mobile {
     display: flex;
@@ -154,5 +211,12 @@
   .social-mobile a {
     font-size: 1.5rem;
     margin: 0 0.75rem;
+  }
+
+  .navbar .container {
+    padding: 0 1rem;
+  }
+  .logo img {
+    height: 55px;
   }
 }
