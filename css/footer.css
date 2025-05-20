@@ -60,6 +60,11 @@
   color: #666;
 }
 
+ .title-footer {
+  color: #d4af37;
+  margin-bottom: 5px;
+}
+
 /* Smartphones (até 480px) */
 @media only screen and (max-width: 480px) {
   /* reduz altura do mapa no mobile mais compacto */
