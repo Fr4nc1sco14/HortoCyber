@@ -36,9 +36,10 @@ a {
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 30px;
   font-weight: 600;
   transition: 0.3s;
+  
 }
 .btn-primary {
   background: #d4af37;

@@ -19,44 +19,26 @@
   padding: 0 1rem;
 }
 
-/* Logo and mobile toggle ordering */
+/* Ordering of elements on desktop: logo, nav-links, reserve button */
 .navbar .logo {
   order: 1;
 }
-#btn-mobile {
-  order: 2;
-}
 
-.logo img {
-  height: 60px;
-}
-
-/* Nav-links (desktop) */
 .nav-links {
+  order: 2;
   list-style: none;
   display: flex;
   gap: 1rem;
 }
 
-/* Links dentro do nav */
-.nav-links li a {
-  color: #eee;
-  padding: 0.5rem 1rem;
-  font-weight: 700;
-  transition: color 0.2s;
-}
-
-.nav-links li a:hover {
-  color: #d4af37;
-}
-
-/* Botão “Reserve” no desktop */
 .btn-desktop {
+  order: 3;
   display: inline-block;
 }
 
-/* Toggle móvel, escondido por padrão */
+/* Mobile toggle (hidden on desktop) */
 #btn-mobile {
+  order: 4;
   display: none;
   font-size: 1.75rem;
   color: #eee;
@@ -66,10 +48,24 @@
   z-index: 1100;
 }
 
-/* Itens exclusivos do menu mobile, escondidos no desktop */
 .reserve-mobile,
 .social-mobile {
   display: none;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.nav-links li a {
+  color: #eee;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.nav-links li a:hover {
+  color: #d4af37;
 }
 
 /* ===== Estilos para Smartphones (até 480px) ===== */
@@ -206,7 +202,9 @@
     display: flex;
   }
   .reserve-mobile a {
-    width: 85%;
+    width: 100%;
+    height: 70%;
+    text-align: center;
   }
   .social-mobile a {
     font-size: 1.5rem;
